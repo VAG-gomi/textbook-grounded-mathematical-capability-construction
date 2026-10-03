@@ -1,0 +1,6 @@
+EXISTING ORDER 2/3 SEQUENCES COMPARED 1296
+EXISTING ORDER 3 EQUALITY TRACE {'input': 2, 'previous_state': 2, 'measurement': 0, 'decision': True, 'output': 'ACCEPT', 'transition': 'RETAIN', 'next_state': 2}
+CANDIDATE ORDER 3 EQUALITY TRACE {'input': 2, 'previous_state': 2, 'measurement': 0, 'decision': True, 'transition': 'ACCEPT_INCREMENT', 'next_state': 3}
+CANDIDATE REJECT TRACE {'input': 5, 'previous_state': 2, 'measurement': 3, 'decision': False, 'transition': 'REJECT_REPLACE', 'next_state': 5}
+CANDIDATE ACCEPT TRACE {'input': 5, 'previous_state': 5, 'measurement': 0, 'decision': True, 'transition': 'ACCEPT_INCREMENT', 'next_state': 6}
+ORDER 3 MISMATCH INVESTIGATION PASSED

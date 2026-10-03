@@ -1,0 +1,3 @@
+EQUALITY OUTPUTS {'increment': 3, 'add_seven': 9, 'double': 4, 'square': 4}
+REJECTION OUTPUTS {'increment': 5, 'add_seven': 5, 'double': 5, 'square': 5}
+NO UNIQUE NON-DEGENERATE RULE IS FORCED

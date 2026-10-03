@@ -1,0 +1,6 @@
+{'input': 5, 'reference': 2, 'measurement': 3, 'decision': False, 'output': 'REJECT', 'label': 'normal input'}
+{'input': 2, 'reference': 2, 'measurement': 0, 'decision': True, 'output': 'ACCEPT', 'label': 'boundary/equality case'}
+{'input': -2, 'reference': 2, 'measurement': 4, 'decision': False, 'output': 'REJECT', 'label': 'opposite case'}
+{'input': 0, 'reference': 2, 'measurement': 2, 'decision': False, 'output': 'REJECT', 'label': 'zero input'}
+{'input': -5, 'reference': 2, 'measurement': 7, 'decision': False, 'output': 'REJECT', 'label': 'negative input'}
+{'input': 2, 'reference': 2, 'measurement': 0, 'decision': True, 'output': 'ACCEPT', 'label': 'repeated identical input'}

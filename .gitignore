@@ -1,0 +1,7 @@
+# Generated Python bytecode
+__pycache__/
+*.py[cod]
+
+# Large historical artifacts published as GitHub Release assets
+HigherMath1stKetabuddin2026.pdf
+HigherMath_Orders_Historical_Repository_End_to_End.zip
