@@ -1,0 +1,404 @@
+Yes. If you create a repository for Order 1 → Order 8, I would treat it as a research/forensic repository, not just a collection of Python scripts.
+
+The central purpose should be:
+
+> Preserve exactly what each Order establishes, why it exists, what it does not establish, and what evidence separates it from the previous Order.
+
+
+
+1. Repository structure
+
+I'd use something like:
+
+orders/
+├── README.md
+├── LICENSE
+├── requirements.txt
+│
+├── docs/
+│   ├── methodology.md
+│   ├── capability_ladder.md
+│   ├── epistemic_states.md
+│   └── decisions.md
+│
+├── order01/
+│   ├── README.md
+│   ├── specification.md
+│   ├── order1.py
+│   └── test_order1.py
+│
+├── order02/
+│   ├── README.md
+│   ├── specification.md
+│   ├── order2.py
+│   └── test_order2.py
+│
+├── order03/
+│   ├── README.md
+│   ├── specification.md
+│   ├── order3.py
+│   └── test_order3.py
+│
+├── order04a/
+│   ├── README.md
+│   ├── specification.md
+│   ├── order4a.py
+│   └── test_order4a.py
+│
+├── order04b/
+│   ├── README.md
+│   ├── specification.md
+│   ├── order4b.py
+│   └── test_order4b.py
+│
+├── order05/
+│   ├── README.md
+│   ├── specification.md
+│   ├── order5.py
+│   └── test_order5.py
+│
+├── order06/
+│   ├── README.md
+│   ├── specification.md
+│   ├── order6.py
+│   └── test_order6.py
+│
+├── order07/
+│   ├── README.md
+│   ├── specification.md
+│   ├── order7.py
+│   └── test_order7.py
+│
+├── order08/
+│   ├── README.md
+│   ├── specification.md
+│   ├── order8.py
+│   └── test_order8.py
+│
+└── investigations/
+    ├── order03_mismatch.md
+    └── order03_forced_capability.md
+
+You don't have to use exactly this structure, but the separation is valuable.
+
+
+---
+
+2. The root README should explain the experiment
+
+Something approximately like:
+
+Orders: Mathematical Capability Construction
+
+Purpose
+-------
+This repository investigates whether progressively different
+computational capabilities can be constructed from explicit
+mathematical specifications and minimal executable mechanisms.
+
+Method
+------
+Mathematical specification
+        ↓
+Logical necessity
+        ↓
+Minimal implementation
+        ↓
+Adversarial testing
+        ↓
+Capability classification
+
+Rules
+-----
+1. A new Order must introduce a demonstrable capability.
+2. Possibility is not treated as necessity.
+3. Implementation evidence is not experimental evidence.
+4. Tests must attempt to falsify the claimed distinction.
+5. Later capabilities must not be silently imported into earlier Orders.
+6. Failed investigations remain part of the research record.
+
+That last point is particularly important.
+
+Do not delete the failed O3 investigation.
+
+It is evidence.
+
+
+---
+
+3. Every Order should have the same forensic template
+
+For example, order05/specification.md should answer:
+
+Mathematical object
+
+\[
+\theta_t\in\{0,1\}
+\]
+
+Input
+
+\[
+y_t\in\{0,1\}
+\]
+
+Prediction
+
+\[
+\hat y_t=\theta_t
+\]
+
+Error
+
+\[
+e_t=y_t-\hat y_t
+\]
+
+Update
+
+\[
+\theta_{t+1}=
+\begin{cases}
+y_t & e_t\neq0\\
+\theta_t & e_t=0
+\end{cases}
+\]
+
+Claimed capability
+
+> Persistent error-driven correction of a single binary value.
+
+
+
+What it does NOT establish
+
+general learning
+
+function learning
+
+generalisation
+
+neural computation
+
+intelligence
+
+optimisation
+
+
+This prevents the repository from gradually turning into a collection of exaggerated claims.
+
+
+---
+
+4. Most importantly: every Order needs a boundary test
+
+This is probably the most important thing I'd add.
+
+Don't only test:
+
+> “Does O5 work?”
+
+
+
+Test:
+
+> “Can O4 do this?”
+
+
+
+For every Order:
+
+\[
+\boxed{\text{New capability} + \text{previous-order counterexample}}
+\]
+
+For example:
+
+O6's claim
+
+O6 learns an input-output relationship.
+
+So your test shouldn't merely show:
+
+input 0 → target 1
+input 1 → target 0
+
+It should demonstrate something O5 cannot represent:
+
+same learner
+input 0 → 1
+input 1 → 0
+
+because O5 only has one persistent parameter/value.
+
+That's the actual capability boundary.
+
+
+---
+
+5. O3 deserves special treatment
+
+Don't pretend the numbering problem never happened.
+
+I'd explicitly document:
+
+ORDER 3 STATUS
+
+Formal:
+PASS
+
+Behavioural:
+DEGENERATE
+
+Reason:
+T3(s,x) = T2(s,x) for all admissible inputs.
+
+Therefore:
+O3 does not establish a new behavioural capability.
+
+The +1 variant was investigated but rejected as
+a forced milestone because +1 is not mathematically
+necessitated by O1/O2.
+
+Then put Manus's investigation in:
+
+investigations/order03_forced_capability.md
+
+That is actually one of the strongest pieces of methodological evidence in the repository.
+
+
+---
+
+6. Keep implementation and experiment separate
+
+This distinction from your methodology becomes extremely important.
+
+For example:
+
+implementation/
+
+answers:
+
+> Does the program execute the specification?
+
+
+
+Whereas:
+
+experiments/
+
+answers:
+
+> Does the claimed capability actually distinguish itself from the previous Order?
+
+
+
+And:
+
+investigations/
+
+answers:
+
+> Did we discover contradictions, degeneracies, or failed candidates?
+
+
+
+So don't let:
+
+pytest: 47 passed
+
+become:
+
+> “Order 7 is scientifically validated.”
+
+
+
+Those are different claims.
+
+
+---
+
+7. Add an Order ledger
+
+I'd create:
+
+docs/capability_ladder.md
+
+with a table like:
+
+Order	Mathematical object	New capability	Previous limitation	Status
+
+O1	scalar measurement	determination	no measurement	PASS
+O2	persistent scalar	temporal state	O1 has no persistence	PASS
+O3	determination-controlled branch	no behavioural novelty	—	FORMAL/DEGENERATE
+O4A	\((s,h)\)	history-dependent transition	O2 lacks independent history variable	PASS*
+O4B	\((s,\theta)\)	persistent rule-state	O4A's history isn't explicitly rule configuration	PASS
+O5	parameter + target + error	error-driven correction	O4B lacks evaluation criterion	PASS
+O6	finite associations	input-output learning	O5 has one value	PASS
+O7	finite graph	arbitrary finite partial function	O6 has fixed slots	PASS
+O8	affine parameters	selected-rule inference	O7 memorises observed pairs	PASS
+
+
+The * qualification should link to its detailed investigation.
+
+
+---
+
+8. Then freeze it
+
+Once O1–O8 are properly documented, don't immediately keep adding Orders.
+
+Create something like:
+
+docs/FROZEN_v1.md
+
+and record:
+
+Order 1–8 Frozen State
+
+O1 PASS
+O2 PASS
+O3 FORMAL / BEHAVIOURALLY DEGENERATE
+O4A PASS WITH QUALIFICATION
+O4B PASS
+O5 PASS UNDER DEFINED LEARNING CRITERION
+O6 PASS
+O7 PASS
+O8 PASS WITH EXPLICIT AFFINE HYPOTHESIS FAMILY
+
+Then future Orders become a new experimental branch, rather than silently rewriting history.
+
+
+---
+
+And one thing I would strongly recommend
+
+Since you're now thinking about your new agentic → neuron/cognitive learning architecture, don't put it inside Order 1–8 yet.
+
+Keep it separate:
+
+orders/
+    order01/
+    ...
+    order08/
+
+architectures/
+    agentic_to_cognitive/
+
+Then we can ask:
+
+\[
+\text{Does the new architecture}
+\]
+
+actually introduce a capability beyond O8?
+
+Or:
+
+\[
+\text{Is it simply another implementation/composition of O1–O8?}
+\]
+
+That separation will make the eventual result much more interesting either way.
+
+The repository should preserve the experiment, not merely showcase the successful code.

@@ -14,3 +14,12 @@ The restored workspace also contains small historical artifacts from the textboo
 These files document how the scanned textbook was inspected and are included as historical source-analysis evidence. They are not additional mathematical sources.
 
 The recovered `__pycache__/` directory contains generated Python bytecode. It is intentionally excluded from the public Git repository and refreshed ZIP because it is reproducible build output, not source history.
+
+## 11. Newly recovered historical attachments
+
+The `historical_attachments/` directory preserves two later context files without overwriting the original tracked `pasted_content.txt`.
+
+- `historical_attachments/2026-10-03_pasted_content_repository_guidance.txt` — repository-design guidance emphasizing forensic documentation, boundary tests, the distinction between implementation and experiment, the formal/degenerate status of Order 3, and freezing Orders 1–8 before further expansion.
+- `historical_attachments/2026-10-03_pasted_content_session_recovery.txt` — session-recovery context explaining that the next possible branch was an agentic-pipeline-to-cognitive-style architecture, to be reconstructed and independently audited rather than silently inserted into Orders 1–8.
+
+These files are historical context, not new verified Orders. The architecture branch remains separate until its explicit mathematical primitives, state, learning rule, capability claim, and falsification tests are supplied.
