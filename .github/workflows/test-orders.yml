@@ -18,7 +18,7 @@ jobs:
           python test_order2_scalar_transition.py
           python test_order3_determination_control.py
           python order3_forced_capability_test.py
-          python test_order3_mismatch_investigation.py
+          python order3_mismatch_investigation.py
           python test_order4a_history_dependent.py
           python test_order4b_dynamic_rule.py
           python test_order5_error_driven_learning.py
