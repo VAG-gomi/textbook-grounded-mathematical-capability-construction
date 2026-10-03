@@ -1,0 +1,27 @@
+name: Verify Orders 1-8
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  deterministic-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Run Order test suites
+        run: |
+          python test_order1_scalar_measurement.py
+          python test_order2_scalar_transition.py
+          python test_order3_determination_control.py
+          python order3_forced_capability_test.py
+          python test_order3_mismatch_investigation.py
+          python test_order4a_history_dependent.py
+          python test_order4b_dynamic_rule.py
+          python test_order5_error_driven_learning.py
+          python test_order6_relation_learner.py
+          python test_order7_partial_function.py
+          python test_order8_affine_rule.py

@@ -7,7 +7,7 @@
 
 ## Executive result
 
-Order 7 implements the frozen specification directly as a finite graph of ordered pairs. The declared domain is:
+Order 7 implements the frozen specification directly as a finite graph of ordered pairs. The declared finite numeric domain is:
 
 \[
 X=\{0,1,2,3\},
@@ -99,7 +99,7 @@ This is selective correction. Only the pair addressed by the current input can c
 
 ## C. Direct executable representation
 
-The implementation uses a Python set of ordered pairs as a direct realization of the mathematical graph. This is an engineering representation of `G_t`, not a replacement for the mathematical derivation.
+The implementation uses a Python set of ordered pairs as a direct realization of the mathematical graph. This is an engineering representation of `G_t`, not a replacement for the mathematical derivation. Because correction computes `e=y-ŷ`, the implementation restricts codomain values to real numeric values. Unknown status uses the explicit `UNKNOWN` sentinel so it cannot collide with a legal codomain value.
 
 The core operations are:
 
@@ -107,12 +107,12 @@ The core operations are:
 |---|---|
 | Graph membership | Search for the unique pair whose first coordinate is `x` |
 | Function evaluation | Return the second coordinate of that pair |
-| Unknown status | Return `None` and expose an unknown-to-learned transition |
+| Unknown status | Return the explicit `UNKNOWN` sentinel and expose an unknown-to-learned transition |
 | New association | Insert `(x,y)` |
 | Known correction | Remove `(x,old)` and insert `(x,new)` |
 | Function validity | Enforced by unique-pair replacement |
 | Domain validity | Reject inputs outside the declared domain |
-| Codomain validity | Reject targets outside the declared codomain |
+| Codomain validity | Reject targets outside the declared numeric codomain |
 
 No vectors, matrices, optimization, neural libraries, probabilities, or external packages are used.
 
@@ -130,11 +130,11 @@ Present `(2,1)`. The input is in the declared domain but has no stored associati
 G_1=\{(2,1)\}.
 \]
 
-The trace correctly reports:
+The trace correctly reports the explicit unknown sentinel (shown as `UNKNOWN` in the current implementation):
 
 ```text
 status: UNKNOWN_TO_LEARNED
-previous_prediction: None
+previous_prediction: UNKNOWN
 error: None
 ```
 
@@ -249,7 +249,7 @@ Order 7 is not unlimited scalability. A larger finite domain can require a large
 
 The strongest defensible statement is:
 
-> **Order 7 demonstrates deterministic supervised learning of a finite binary function over a declared finite domain larger than two, using a persistent graph of ordered pairs, input-dependent evaluation, unknown-to-known insertion, and selective correction that preserves function validity.**
+> **Order 7 demonstrates deterministic supervised learning of a finite binary function over a declared finite domain larger than two, using a persistent graph of ordered pairs, input-dependent evaluation, explicit unknown-to-known insertion, and selective numerical correction that preserves function validity.**
 
 The causal cycle is:
 

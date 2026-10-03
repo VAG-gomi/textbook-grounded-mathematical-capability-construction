@@ -48,11 +48,10 @@ Order 7 is a representation question, not an AI question:
 
 > **What is the smallest mathematical representation that allows the same input-output learning mechanism to operate over a finite domain larger than two elements?**
 
-The new target is a finite function:
+The new target is a finite function with a finite numeric codomain, because the retained Order 6 correction mechanism computes numerical error:
 
 \[
-f:X\rightarrow Y,
-\qquad |X|>2.
+f:X\rightarrow Y,\qquad |X|>2,\qquad Y\subseteq\mathbb{R}.
 \]
 
 Use the smallest illustrative larger domain:
@@ -88,7 +87,7 @@ The supplied textbook identifies a chapter titled **Functions and Functions Grap
 | Evaluation | Given an admissible input, retrieve its output |
 | Function validity | One input cannot have two different outputs |
 
-The textbook’s function material therefore grounds a representation as an input-output object rather than as an unaddressed sequence of values.
+The textbook’s function material therefore grounds a representation as an input-output object rather than as an unaddressed sequence of values. The implementation contract for this Order is intentionally narrower than arbitrary finite codomains: every codomain value must support subtraction.
 
 ## 4. Secondary MCQ/CQ grounding
 
@@ -162,7 +161,7 @@ An input outside the declared domain is not silently treated as a valid query:
 x\notin X\Rightarrow f(x)\text{ is undefined under this finite-function specification.}
 \]
 
-An input inside the declared domain may also be temporarily unknown when no pair for it is present in `G_f`. This unknown status is not a third codomain value; it records that no association has yet been learned.
+An input inside the declared domain may also be temporarily unknown when no pair for it is present in `G_f`. This unknown status is represented by an explicit internal sentinel, not by a value from `Y`; it therefore cannot collide with a legal numeric codomain value.
 
 This domain boundary is important because the textbook’s MCQ-oriented function examples emphasize admissibility restrictions.
 
@@ -170,7 +169,7 @@ This domain boundary is important because the textbook’s MCQ-oriented function
 
 Order 7 should preserve Order 6’s evaluation-driven selective correction, but apply it to a scalable function graph.
 
-Given an experience pair:
+Given an experience pair with `Y` numeric:
 
 \[
 (x_t,y_t)\in X\times Y,
@@ -310,7 +309,7 @@ Repeating a pair already present in the graph must produce zero error and no gra
 | Scalability question | Not tested | Central experimental target |
 | Data structure | Not selected | Deferred until after mathematical derivation |
 
-Order 7 is therefore not “more AI.” It is a representation escalation forced by the fixed two-slot limitation of Order 6.
+Order 7 is therefore not “more AI.” It is a representation escalation forced by the fixed two-slot limitation of Order 6. The current implementation is specifically a finite numeric-codomain learner; arbitrary finite codomains require a different mismatch/update contract.
 
 ## 11. What Order 7 does not yet claim
 

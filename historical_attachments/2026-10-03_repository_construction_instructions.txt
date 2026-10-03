@@ -1,0 +1,967 @@
+Repository Construction Instructions for Manus
+
+0. Mission
+
+Maintain and upgrade the repository:
+
+"VAG-gomi/textbook-grounded-mathematical-capability-construction"
+
+The repository is a research record for textbook-grounded mathematical capability construction.
+
+The purpose is not to maximise code complexity, produce an AI system, or force a sequential O1–O8 numbering.
+
+The governing methodology is:
+
+[
+\boxed{
+\text{Mathematical specification}
+\rightarrow
+\text{Logical necessity}
+\rightarrow
+\text{Minimal executable mechanism}
+\rightarrow
+\text{Adversarial testing}
+\rightarrow
+\text{Capability classification}
+}
+]
+
+The repository must preserve the distinction between:
+
+- what the textbook establishes,
+- what is logically forced,
+- what is merely a valid construction,
+- what is implemented,
+- what is experimentally demonstrated,
+- and what remains hypothetical.
+
+Do not silently strengthen claims.
+
+Do not invent missing mathematical justification merely to make the sequence look cleaner.
+
+---
+
+1. Highest-priority repository rule
+
+The repository is a research archive first and a software project second.
+
+Historical failed experiments, degenerate Orders, rejected repairs, source-analysis records, and superseded claims must remain recoverable.
+
+Never delete a failed investigation merely because a later conclusion supersedes it.
+
+Instead:
+
+[
+\text{old result}
+\rightarrow
+\text{preserve}
+\rightarrow
+\text{mark superseded}
+\rightarrow
+\text{link to newer result}
+]
+
+The repository must allow an independent reader to reconstruct:
+
+1. what was originally proposed,
+2. what was implemented,
+3. what failed,
+4. why it failed,
+5. what replacement was investigated,
+6. why the replacement was accepted or rejected,
+7. what the final frozen interpretation became.
+
+---
+
+2. Frozen conceptual ladder
+
+The current conceptual ladder is:
+
+[
+\boxed{
+O_1\rightarrow O_2\rightarrow O_{4A}\rightarrow O_{4B}\rightarrow O_5\rightarrow O_6\rightarrow O_7\rightarrow O_8
+}
+]
+
+with the original O3 retained separately as:
+
+[
+\boxed{
+O_3=\text{formal determination-controlled decomposition, behaviourally degenerate}
+}
+]
+
+The attempted "+1" repair is:
+
+[
+\boxed{
+\text{experimental variant, not a validated Order}
+}
+]
+
+Do not renumber O4A–O8 merely to remove the gap.
+
+The missing integer is itself part of the research result.
+
+Do not create O9 yet.
+
+---
+
+3. Required repository philosophy
+
+For every capability claim, distinguish these questions:
+
+A. What exists mathematically?
+
+Example:
+
+[
+d=|x-a|
+]
+
+B. What is logically forced?
+
+Example:
+
+Does the limitation of the previous Order require this new mathematical object?
+
+C. What implementation was selected?
+
+Example:
+
+Python class using a boolean determination.
+
+D. What was experimentally demonstrated?
+
+Example:
+
+A counterexample that the previous Order cannot reproduce.
+
+E. What remains unestablished?
+
+Example:
+
+Generalisation, intelligence, neural equivalence, unrestricted learning, etc.
+
+Never collapse A–E into a single "validated" label.
+
+---
+
+4. Epistemic labels
+
+Use these labels consistently:
+
+- FACT — directly supported by source, code, or reproducible test.
+- INFERENCE — follows from established facts but is not directly stated by the source.
+- HYPOTHESIS — proposed mechanism or interpretation.
+- CONSTRUCTION — a deliberately selected implementation choice.
+- IMPLEMENTATION EVIDENCE — code executes the specified mechanism.
+- EXPERIMENTAL EVIDENCE — an executed test distinguishes competing claims.
+- VERIFIED — only use when the stated verification condition has actually been satisfied and is reproducible.
+
+Do not use "proved" where the repository only has an executed example.
+
+---
+
+5. Order template
+
+Every Order directory must contain, where applicable:
+
+orderXX/
+├── README.md
+├── specification.md
+├── implementation.py
+└── test_implementation.py
+
+If a historical or forensic investigation exists, keep it in:
+
+investigations/
+
+or in the corresponding Order directory with an explicit "investigation" name.
+
+Each Order README/specification should contain:
+
+1. Mathematical object
+2. Allowed primitives
+3. State variables
+4. Transition/update rule
+5. Claimed capability
+6. Previous Order limitation
+7. Why the new capability is required
+8. Decisive counterexample against the previous Order
+9. Implementation boundary
+10. What the Order does not establish
+11. Test coverage
+12. Status
+
+---
+
+6. Order 1 preservation
+
+Keep the current O1 mechanism:
+
+[
+d(x,a)=|x-a|
+]
+
+[
+ACCEPT\iff d=0
+]
+
+[
+REJECT\iff d\neq0
+]
+
+O1 is:
+
+«scalar measurement and deterministic determination.»
+
+Do not introduce state, history, learning, vectors, matrices, or relation storage.
+
+Status:
+
+[
+\boxed{O1=PASS}
+]
+
+Tests must continue to establish scalar measurement, exact equality determination, and absence of persistence.
+
+---
+
+7. Order 2 preservation
+
+Keep:
+
+[
+d_t=|x_t-s_t|
+]
+
+[
+ACCEPT\iff d_t=0
+]
+
+[
+s_{t+1}=x_t
+]
+
+O2 is:
+
+«persistent scalar state with deterministic current-step transition.»
+
+Do not reinterpret this as learning.
+
+Do not add targets, error correction, historical variables, or dynamic rule state.
+
+Status:
+
+[
+\boxed{O2=PASS}
+]
+
+The report must retain the qualification that the replacement transition is a selected minimal baseline, not something uniquely forced by the entire textbook.
+
+---
+
+8. Order 3 handling — CRITICAL
+
+Do not modify the original O3 implementation merely to make it behaviourally novel.
+
+Original mechanism:
+
+[
+s_{t+1}=
+\begin{cases}
+s_t & ACCEPT\
+x_t & REJECT
+\end{cases}
+]
+
+Because:
+
+[
+ACCEPT\Rightarrow x_t=s_t
+]
+
+the implementation satisfies:
+
+[
+T_3(s,x)=x=T_2(s,x)
+]
+
+for all admissible inputs.
+
+Therefore the original O3 must be classified:
+
+[
+\boxed{
+\text{FORMAL PASS / BEHAVIOURAL DEGENERACY}
+}
+]
+
+Preserve the existing O3 code.
+
+Preserve the exhaustive equivalence investigation.
+
+Preserve the "+1" repair investigation.
+
+Add explicit cross-links indicating that the later forced-capability investigation supersedes the earlier suggestion that the "+1" repair could become a validated Order.
+
+Required wording:
+
+«The "+1" construction is behaviourally distinct from O2, but the rule is not mathematically forced by O1/O2. It is therefore retained as an experimental variant rather than promoted to a capability milestone.»
+
+Do not call the "+1" mechanism "minimal" unless the statement explicitly means "minimal among the tested constructions". It is not established as mathematically necessary.
+
+---
+
+9. Order 3 final investigation
+
+The forced-capability investigation must remain in the repository.
+
+It establishes the distinction:
+
+[
+\boxed{\text{possible}\neq\text{necessary}}
+]
+
+The repository should explicitly preserve the tested alternatives:
+
+[
+s+1,\quad s+7,\quad 2s,\quad s^2
+]
+
+as examples showing underdetermination.
+
+The conclusion should remain:
+
+«No non-arbitrary, mathematically forced O3 was found under the stated restrictions.»
+
+Do not convert this into:
+
+«No conceivable O3 can ever exist.»
+
+That stronger universal statement has not been established.
+
+---
+
+10. Order 4A
+
+Preserve the current architecture:
+
+[
+(s_t,h_t)
+]
+
+where:
+
+[
+h_t\in{0,1}.
+]
+
+The important capability is not merely "memory".
+
+The capability is:
+
+«an independently persistent causal variable can influence the transition even when current state, input, measurement, and determination are identical.»
+
+The decisive test should demonstrate:
+
+[
+(s,x,D)_{\text{path A}}
+
+(s,x,D)_{\text{path B}}
+]
+
+but:
+
+[
+h_{\text{A}}\neq h_{\text{B}}
+]
+
+and therefore:
+
+[
+s'{\text{A}}\neq s'{\text{B}}.
+]
+
+Status:
+
+[
+\boxed{O4A=PASS\ WITH\ QUALIFICATION}
+]
+
+Keep the qualification that the exact history-toggle rule is a construction choice; the existence of the additional persistent causal variable is the capability boundary.
+
+---
+
+11. Order 4B
+
+Preserve:
+
+[
+(s_t,\theta_t)
+]
+
+with persistent rule-state.
+
+The repository should distinguish:
+
+[
+\text{history state}
+]
+
+from:
+
+[
+\text{rule configuration state}.
+]
+
+Do not call O4B "learning".
+
+The current rule-state update is predetermined by its mechanism and does not arise from an explicit correctness criterion.
+
+Status:
+
+[
+\boxed{O4B=PASS}
+]
+
+Retain the architectural qualification:
+
+«Rule-state can, in principle, be encoded into an enlarged ordinary state representation; therefore the distinction between O4A and O4B is primarily semantic/architectural rather than a demonstrated increase in unrestricted computational expressiveness.»
+
+---
+
+12. Order 5
+
+Preserve the current narrow learning criterion:
+
+[
+\text{experience}
+\rightarrow
+\text{evaluation}
+\rightarrow
+\text{persistent modification}
+\rightarrow
+\text{future behaviour}.
+]
+
+Current mechanism:
+
+[
+\hat y_t=\theta_t
+]
+
+[
+e_t=y_t-\hat y_t
+]
+
+[
+\theta_{t+1}=
+\begin{cases}
+y_t&e_t\neq0\
+\theta_t&e_t=0
+\end{cases}
+]
+
+Recommended wording:
+
+«deterministic supervised correction under an explicit error criterion.»
+
+Avoid presenting O5 as "general learning".
+
+It learns one binary value.
+
+Status:
+
+[
+\boxed{O5=PASS}
+]
+
+---
+
+13. Order 6
+
+Preserve:
+
+[
+X={0,1},\qquad Y={0,1}
+]
+
+with two independently addressable persistent associations.
+
+The key capability is:
+
+«experience can modify one input-output association while preserving another association.»
+
+The decisive counterexample against O5 should remain explicit.
+
+O5 contains one persistent value.
+
+O6 contains input-addressable relation state:
+
+[
+f(0)=m_0,\qquad f(1)=m_1.
+]
+
+Status:
+
+[
+\boxed{O6=PASS}
+]
+
+Do not claim general relation learning or general function learning.
+
+---
+
+14. Order 7 — required technical correction
+
+Current mathematical object:
+
+[
+G_t\subseteq X\times Y
+]
+
+with at most one output for each input.
+
+This is correct.
+
+However, the implementation currently allows an arbitrary finite codomain while numerical correction uses:
+
+[
+e=target-prediction.
+]
+
+That silently requires subtraction.
+
+Fix this contract explicitly.
+
+Preferred solution:
+
+Restrict O7 to a finite numeric domain/codomain
+
+State clearly that the current implementation uses a finite numeric codomain because its correction mechanism is numerical:
+
+[
+e=y-\hat y.
+]
+
+Do not claim arbitrary finite codomains in the implementation specification unless the error mechanism is changed.
+
+Also ensure the "unknown" sentinel cannot collide with a legal codomain value.
+
+Do not use "None" as the semantic representation of "unknown" if "None" is allowed as a codomain value.
+
+The preferred semantics are:
+
+UNKNOWN = explicit internal sentinel
+
+or an equivalent unambiguous representation.
+
+Status remains:
+
+[
+\boxed{O7=PASS}
+]
+
+provided the specification and implementation are brought into agreement.
+
+---
+
+15. Order 8 — required specification correction
+
+The current specification refers to a declared admissible domain, but the implementation does not actually declare or enforce one.
+
+Do not leave this mismatch.
+
+Preferred solution for the current frozen Order:
+
+Remove the undeclared-domain requirement.
+
+The capability under investigation is:
+
+«deterministic inference of unseen scalar outputs within a preselected affine function family.»
+
+The current implementation may therefore evaluate any scalar input for which the affine calculation is defined.
+
+Do not add domain-management machinery unless domain management itself becomes part of a later capability experiment.
+
+Preserve:
+
+[
+f(x)=ax+b
+]
+
+with:
+
+[
+a=\frac{y_2-y_1}{x_2-x_1}
+]
+
+and:
+
+[
+b=y_1-ax_1.
+]
+
+The key restriction must remain explicit:
+
+«The affine function family is selected in advance; the system does not infer which function family should be used.»
+
+Status:
+
+[
+\boxed{O8=PASS\ WITH EXPLICIT HYPOTHESIS-FAMILY SCOPE}
+]
+
+---
+
+16. O8 must not be called unrestricted generalisation
+
+The repository must never describe the current O8 mechanism as:
+
+- unrestricted generalisation,
+- general function approximation,
+- arbitrary mathematical induction,
+- concept learning,
+- intelligence,
+- neural computation.
+
+The correct statement is:
+
+«deterministic persistent inference of unseen scalar outputs within a preselected affine hypothesis family.»
+
+This distinction is essential.
+
+---
+
+17. Source grounding policy
+
+The textbook is a mathematical capability boundary, not an AI recipe.
+
+For every claimed textbook grounding, classify evidence as:
+
+Definitions/theory
+
+Establish the mathematical object.
+
+Solved examples
+
+Reveal permitted operations and ordinary applications.
+
+MCQs
+
+Use as adversarial edge-case probes where appropriate.
+
+CQs
+
+Use as multi-step consistency tests where appropriate.
+
+Never write:
+
+«The textbook says to build this mechanism.»
+
+unless the textbook literally says so.
+
+The acceptable claim is:
+
+«The textbook establishes the mathematical primitive used by this mechanism.»
+
+---
+
+18. OCR and source-image policy
+
+OCR files are secondary source-inspection evidence.
+
+They must not silently become the authoritative basis for mathematical claims when image/source inspection is available.
+
+Preserve:
+
+- source images,
+- OCR output,
+- source-analysis notes,
+- page references.
+
+If OCR is malformed, document the uncertainty instead of repairing the OCR and presenting the repaired text as original source material.
+
+---
+
+19. Historical material policy
+
+Keep:
+
+historical_attachments/
+pasted_content.txt
+conversation_transcript_with_figures.pdf
+
+but label them clearly as historical/contextual material.
+
+Historical assistant/user conversation text is not mathematical authority.
+
+It can document the evolution of the methodology, but cannot substitute for:
+
+- textbook evidence,
+- mathematical derivation,
+- implementation evidence,
+- experimental evidence.
+
+---
+
+20. Repository naming/documentation cleanup
+
+Correct stale references to the old planned repository name:
+
+"higher-mathematics-orders"
+
+The authoritative repository name is:
+
+"textbook-grounded-mathematical-capability-construction"
+
+Search the entire repository for stale references.
+
+Do not alter historical text merely to erase history.
+
+Instead distinguish:
+
+historical wording
+
+from:
+
+current repository identity
+
+in the relevant metadata/documentation.
+
+---
+
+21. SHA256 manifest consistency
+
+Inspect:
+
+"SHA256SUMS.txt"
+
+and:
+
+"GITHUB_PUBLIC_REPOSITORY.md"
+
+for consistency.
+
+If documentation claims that a particular release artifact is covered by the checksum manifest, verify that the artifact actually has a corresponding checksum.
+
+Do not fabricate a checksum.
+
+If an artifact is intentionally external to the tracked manifest, state that explicitly.
+
+---
+
+22. Automated reproducibility
+
+Do not delete historical verification outputs.
+
+Instead add a reproducible automated test path.
+
+Preferred future structure:
+
+tests/
+
+or equivalent root-level collection, plus GitHub Actions.
+
+The CI system should execute all current Order tests.
+
+Minimum CI condition:
+
+O1 tests pass
+O2 tests pass
+O3 tests pass
+O3 forensic tests pass
+O3 forced-capability investigation passes
+O4A tests pass
+O4B tests pass
+O5 tests pass
+O6 tests pass
+O7 tests pass
+O8 tests pass
+
+The historical output files remain historical records.
+
+CI becomes current reproducibility evidence.
+
+Do not claim CI proves the mathematical theory.
+
+It only establishes reproducible implementation/test execution.
+
+---
+
+23. Do not over-clean the repository
+
+Do not remove:
+
+- old investigations,
+- superseded specifications,
+- failed candidate mechanisms,
+- historical outputs,
+- source-inspection notes,
+- rejected alternatives.
+
+A forensic research repository should contain evidence of revision.
+
+The proper pattern is:
+
+ORIGINAL
+↓
+INVESTIGATION
+↓
+FAILURE / DEGENERACY / QUALIFICATION
+↓
+REVISED INTERPRETATION
+↓
+FROZEN STATUS
+
+not:
+
+OLD VERSION
+↓
+DELETE
+↓
+CLEAN STORY
+
+---
+
+24. Add a current status ledger
+
+Create or update:
+
+docs/Frozen_Order_Ladder.md
+
+so it contains one authoritative status table:
+
+Order| Status| Core capability
+O1| PASS| scalar measurement and determination
+O2| PASS| persistent scalar state
+O3| FORMAL / DEGENERATE| determination-controlled decomposition with no behavioural novelty
+O4A| PASS WITH QUALIFICATION| independent persistent causal history variable
+O4B| PASS| persistent dynamic rule-state
+O5| PASS| deterministic supervised correction
+O6| PASS| input-addressable finite relation learning
+O7| PASS| finite partial-function representation and learning
+O8| PASS WITH SCOPE| affine-rule inference for unseen scalar inputs
+
+The table must link to the detailed Order documents.
+
+---
+
+25. New architecture must remain separate
+
+Do NOT place the new agentic → neuron/cognitive architecture into O9 yet.
+
+Create a separate top-level area:
+
+architectures/
+└── agentic_to_cognitive/
+
+The reason is methodological:
+
+The architecture has not yet earned a capability position in the frozen ladder.
+
+First decompose it into:
+
+[
+\text{architecture}
+\rightarrow
+\text{mathematical objects}
+\rightarrow
+\text{state}
+\rightarrow
+\text{transition}
+\rightarrow
+\text{learning rule}
+\rightarrow
+\text{capability claim}
+\rightarrow
+\text{falsification test}
+]
+
+Only after that investigation should it be compared with O1–O8.
+
+Do not call it a neuron merely because its structure resembles a neuron.
+
+Do not call it learning until persistent experience-dependent change is operationally demonstrated.
+
+Do not call it cognitive merely because it is organized into cognitive-looking stages.
+
+---
+
+26. Final acceptance criteria for this repository revision
+
+The repository revision is accepted only when all of the following are true:
+
+Mathematical consistency
+
+Every Order's equations agree with its code.
+
+Capability consistency
+
+The stated capability agrees with the observed behaviour.
+
+Boundary consistency
+
+Every nontrivial Order has an explicit test showing something the prior Order cannot do.
+
+Historical traceability
+
+Superseded and failed investigations remain accessible.
+
+Source traceability
+
+Textbook claims point to the relevant mathematical material.
+
+Contract consistency
+
+No specification requires functionality absent from the implementation.
+
+Reproducibility
+
+The complete test suite can be executed from a clean environment.
+
+Scope discipline
+
+No Order claims more than its evidence establishes.
+
+O3 preservation
+
+The repository explicitly records why O3 is not promoted merely to preserve numbering.
+
+O9 prevention
+
+Do not begin O9 until a separate capability investigation has passed the same necessity standard.
+
+---
+
+27. Final repository principle
+
+The repository should embody one central rule:
+
+[
+\boxed{
+\text{Do not add a capability because it can be constructed.}
+}
+]
+
+Instead:
+
+[
+\boxed{
+\text{Add a capability when the previous mechanism has a demonstrated limitation that requires it.}
+}
+]
+
+And equally:
+
+[
+\boxed{
+\text{Do not confuse implementation success with capability validation.}
+}
+]
+
+The strongest outcome of this repository is not that it produces eight increasingly complicated programs.
+
+The strongest outcome is that it can show exactly why each capability was admitted, why each rejected capability was rejected, and where the evidence stops.

@@ -1,4 +1,4 @@
-from order7_partial_function import Order7, run_verification
+from order7_partial_function import UNKNOWN, Order7, run_verification
 
 
 DOMAIN = (0, 1, 2, 3)
@@ -8,15 +8,23 @@ def main():
     learner = Order7(DOMAIN, (0, 1))
     assert learner.graph() == frozenset()
     assert learner.is_total() is False
-    assert learner.predict(2) is None
+    assert learner.predict(2) is UNKNOWN
 
     # Unknown input becomes a stored association without pretending that a
     # numerical prediction or error existed before the first experience.
     first = learner.step(2, 1)
     assert first["status"] == "UNKNOWN_TO_LEARNED"
-    assert first["previous_prediction"] is None
+    assert first["previous_prediction"] is UNKNOWN
     assert first["error"] is None
     assert learner.graph() == frozenset({(2, 1)})
+
+    # The correction rule is numerical, so non-numeric codomains are rejected.
+    try:
+        Order7(DOMAIN, ("zero", "one"))
+    except TypeError:
+        pass
+    else:
+        raise AssertionError("Order 7 codomain must be numeric for subtraction-based correction")
 
     # Learn the four-element alternating function.
     learner = Order7(DOMAIN, (0, 1))

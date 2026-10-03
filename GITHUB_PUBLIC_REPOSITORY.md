@@ -2,7 +2,7 @@
 
 ## Repository
 
-Planned public repository name: `higher-mathematics-orders`
+Authoritative public repository name: `textbook-grounded-mathematical-capability-construction`
 
 Purpose: preserve and explain the textbook-grounded Order 1–8 historical build in an outsider-readable public repository.
 
@@ -26,7 +26,7 @@ GitHub's ordinary Git file limit is below the size of two historical artifacts:
 - `HigherMath1stKetabuddin2026.pdf` — approximately 129 MB;
 - `HigherMath_Orders_Historical_Repository_End_to_End.zip` — approximately 129 MB.
 
-These exact files are preserved as public GitHub Release assets rather than being silently removed or altered. The repository documentation and checksum manifest identify them. The release assets can be downloaded independently of a normal Git clone.
+These exact files are preserved as public GitHub Release assets rather than being silently removed or altered. The repository documentation identifies both assets. The textbook PDF is covered by `SHA256SUMS.txt`; the ZIP is self-referential and therefore its digest is recorded in the GitHub release metadata and in the archive verification record, not inside its own checksum file. The release assets can be downloaded independently of a normal Git clone.
 
 ## Verification policy
 
@@ -37,6 +37,7 @@ Before publication:
 3. SHA-256 checksums must validate;
 4. the public repository must contain the outsider guide and historical caveats;
 5. large files must be uploaded as release assets with their exact filenames.
+6. CI must execute the current deterministic test suite without replacing historical outputs.
 
 ## Historical interpretation
 

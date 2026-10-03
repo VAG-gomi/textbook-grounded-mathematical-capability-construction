@@ -221,7 +221,7 @@ The later implementation must enforce or expose the following conditions:
 | Scalar inputs and outputs | No vectors or matrices are introduced |
 | Rule evaluation | `\hat y=ax+b` |
 | Unseen-input distinction | Query input is not one of the calibration inputs |
-| Domain validity | Query must lie in the declared admissible domain |
+| Input scope | Any scalar input for which the affine expression is defined; no undeclared domain-management capability is claimed |
 | Determinism | Same two examples and same rule family yield same parameters |
 | Scope limitation | No claim is made for non-affine target functions |
 
@@ -259,16 +259,16 @@ so the unseen query `x=2` must produce `7`, not `5`. This proves that the predic
 
 A later implementation must not silently claim success on arbitrary nonlinear examples. For example, two points from a nonlinear relation can still define an affine line, but a third point may disagree. That disagreement should be recorded as a limitation of the selected affine family, not hidden by changing the rule without specification.
 
-### 9.7 Domain and range test
+### 9.7 Input-scope test
 
-Queries outside the declared domain must be rejected or marked undefined. The affine formula alone does not erase domain restrictions.
+The current Order 8 implementation does not declare or manage a separate admissible domain. It evaluates scalar inputs through the selected affine expression. Domain-management rules are intentionally deferred because they are not the capability under investigation.
 
 ## 10. Exact Order 7-to-Order 8 boundary
 
 | Property | Order 7 | Order 8 |
 |---|---|---|
 | Persistent object | Partial graph `G_t` | Persistently retained affine rule parameters `(a,b)` |
-| Unknown input | No stored association | May be evaluated if within rule domain |
+| Unseen input | No stored association | Evaluated as a scalar through the retained affine rule |
 | Learning content | Explicit pairs | Selected rule inferred from examples |
 | New operation | Pair insertion/replacement | Solving for rule parameters |
 | Unseen-input behavior | Unknown | Rule-based inference |

@@ -2,7 +2,7 @@
 
 Mathematical state:
     X = declared finite domain
-    Y = finite codomain
+    Y = finite numeric codomain
     G_t subseteq X x Y, with at most one output per input
 
 Unknown input:
@@ -13,14 +13,20 @@ Known update:
     error = target - prediction
     if error != 0, replace the unique pair for x
 
-The implementation uses a Python set of ordered pairs only as a direct
-executable realization of the mathematical graph G_t. It introduces no
-vectors, matrices, optimization, or external libraries.
+The numeric codomain is explicit because correction uses subtraction.
+UNKNOWN is an object sentinel so it cannot collide with any legal numeric
+codomain value. The implementation uses a Python set of ordered pairs only as
+a direct executable realization of the mathematical graph G_t.
 """
+
+from numbers import Real
+
+
+UNKNOWN = object()
 
 
 class Order7:
-    """Finite partial-function learner over a declared finite domain."""
+    """Finite partial-function learner over a declared finite numeric domain."""
 
     def __init__(self, domain, codomain=(0, 1)):
         self.domain = frozenset(domain)
@@ -29,6 +35,8 @@ class Order7:
             raise ValueError("domain must be non-empty")
         if not self.codomain:
             raise ValueError("codomain must be non-empty")
+        if any(isinstance(value, bool) or not isinstance(value, Real) for value in self.codomain):
+            raise TypeError("codomain values must be real numeric values")
         self._graph = set()
 
     def _validate_input(self, input_value):
@@ -37,7 +45,7 @@ class Order7:
 
     def _validate_target(self, target):
         if target not in self.codomain:
-            raise ValueError("target is outside the declared codomain")
+            raise ValueError("target is outside the declared numeric codomain")
 
     def _pair_for(self, input_value):
         for pair in self._graph:
@@ -48,7 +56,7 @@ class Order7:
     def predict(self, input_value):
         self._validate_input(input_value)
         pair = self._pair_for(input_value)
-        return None if pair is None else pair[1]
+        return UNKNOWN if pair is None else pair[1]
 
     def graph(self):
         return frozenset(self._graph)
@@ -68,7 +76,7 @@ class Order7:
             return {
                 "input": input_value,
                 "target": target,
-                "previous_prediction": None,
+                "previous_prediction": UNKNOWN,
                 "error": None,
                 "status": "UNKNOWN_TO_LEARNED",
                 "changed": True,
